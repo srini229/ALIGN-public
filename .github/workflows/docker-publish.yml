@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: darpaalign/align-public
+          images: srampr/align-public
           tags: |
               type=raw,value=latest
       
