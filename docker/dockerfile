@@ -4,7 +4,7 @@ RUN apt update -y
 RUN apt install -y git python3 python3-pip gcc g++ lp-solve sudo liblpsolve55-dev
 RUN apt clean
 WORKDIR /
-RUN git clone https://github.com/ALIGN-analoglayout/ALIGN-public.git
+RUN git clone https://github.com/srini229/ALIGN-public.git
 WORKDIR /ALIGN-public
 RUN mkdir -p /data/wheels
 RUN pip download setuptools wheel pybind11 scikit-build cmake ninja networkx python-gdsii gdspy pyyaml pybind11 'pydantic>=1.9.2,<=1.20' z3-solver mip more-itertools colorlog plotly numpy pandas werkzeug dash memory_profiler flatdict pytest pytest-cov pytest-xdist pytest-timeout pytest-rerunfailures pytest-cpp pip --destination-dir=/data/wheels
