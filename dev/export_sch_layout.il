@@ -25,6 +25,7 @@ procedure(setParam(inst paramName paramType value)
   )
 )
 
+; create layouts for each lef cell
 procedure(createLayout(lib cell inst pdklib pdkcell outdir)
   if(member(pdklib PDKLib) then
     mv=dbOpenCellViewByType(pdklib pdkcell "layout" "maskLayout" "r")
@@ -83,6 +84,7 @@ procedure(getLeaf(lib cell level leaf)
   )
 )
 
+; write a subckt for each non-leaf hierarchy
 procedure(writeHier(lib cell level sphandle outdir)
   printf("writing cell : %s %s " lib cell)
   cv = dbOpenCellViewByType(lib cell "schematic")
@@ -122,6 +124,7 @@ procedure(writeHier(lib cell level sphandle outdir)
   fprintf(sphandle ".ends %s\n" cell)
 )
 
+; recursive hierarchy extractor
 procedure(_genHierLayout(lib cell level)
   let((index currLevel)
     index = list(lib cell)
